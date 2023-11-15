@@ -3,3 +3,12 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+homepage:
+    path: /homepage
+    controller: App\Controller\HomePageController::home
+products:
+    path: /products
+    controller: App\Controller\ProductsController::getProducts
+contact:
+    path: /contact
+    controller: App\Controller\ContactController::contact

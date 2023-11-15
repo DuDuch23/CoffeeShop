@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@500&family=Rancho&family=Rubik+Iso&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rancho&family=Rubik+Iso&display=swap');
+
+body{
+    margin: 0;
+}
+
+.btn{
+    border-style: solid;
+    border-radius: 5px;
+    width: 194px;
+    height: 49px;
+    background: rgba(255,255,255,1);
+    color: #331a15;
+    border-width: 3px;
+    border-color: #fff;
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 400;
+    font-family: Rancho;
+    font-style: normal;
+    text-align: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgba(255,255,255,0);
+    color: white;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    background: rgba(51,26,21,1);
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+.content-top{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.content-navbar{
+    width: 75%;
+    color: white;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family: Raleway;
+}
+
+.content-name{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name{
+    font-family: Rancho;
+    font-weight: 400;
+    font-size: 52px;
+}
+
+.content-btn-shop{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-shop{
+
+}
+
+.label{
+
+}
+
+.content-background-slider{
+
+}
+
+.slider{
+
+}
+
+.slider-item{
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+.img-slider{
+    width: 100%;
+    height: 850px;
+}
+
+.content-title-description-btn{
+
+}
+
+.title-description-btn{
+
+}
+
+.title-slider{
+
+}
+
+.description-slider{
+
+}
