@@ -30,6 +30,7 @@ body{
 }
 
 header{
+    position: fixed;
     width: 100%;
     height: 100px;
     background: rgba(51,26,21,1);
@@ -48,6 +49,8 @@ header{
 .content-navbar{
     width: 75%;
     color: white;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .navbar{
@@ -95,12 +98,60 @@ a{
 
 }
 
+.block-brown{
+    width: 100%;
+    height: 100px;
+    background: rgba(51,26,21,1);
+}
+
 .content-background-slider{
 
 }
 
 .slider{
 
+}
+
+.first-slider{
+    background-image: url(/media/background-coffee1.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    width: 100%;
+    height: 850px;
+}
+
+.second-slider{
+    background-image: url(/media/background-coffee2.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    width: 100%;
+    height: 850px;
+}
+
+.third-slider{
+    background-image: url(/media/background-coffee3.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    width: 100%;
+    height: 850px;
 }
 
 .slider-item{
@@ -117,17 +168,31 @@ a{
 }
 
 .content-title-description-btn{
-
+    width: 76%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .title-description-btn{
-
+    width: 30%;
 }
 
 .title-slider{
-
+    font-family: 'Rancho';
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 68px;
+    line-height: 77px;
 }
 
 .description-slider{
-
+    font-family: 'Raleway';
+    color: rgb(240, 240, 240);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 26px;
 }

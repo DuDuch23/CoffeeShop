@@ -4,7 +4,7 @@ controllers:
         namespace: App\Controller
     type: attribute
 homepage:
-    path: /homepage
+    path: /
     controller: App\Controller\HomePageController::home
 products:
     path: /products
