@@ -17,12 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Auto slide change every 5000 milliseconds (5 seconds)
-    setInterval(nextSlide, 1000);
+    setInterval(nextSlide, 5000);
 
     // Optional: Add event listeners for manual navigation
     // You can customize this based on your UI (e.g., add buttons to navigate)
-
-    // Example with buttons
-    document.getElementByClass('prevBtn').addEventListener('click', prevSlide);
-    document.getElementByClass('nextBtn').addEventListener('click', nextSlide);
 });
