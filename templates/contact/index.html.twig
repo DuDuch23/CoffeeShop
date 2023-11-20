@@ -4,12 +4,16 @@
 
 {% block body %}
 
-<div class="example-wrapper">
-    <h1>Hello</h1>
+<section class="container-form-contact">
+    <h1>Contactez nous</h1>
+    {% if message is defined %}
+        <p>{{ message }}</p>
+    {% endif %}
 
-    <ul>
-        <li>La page d'accueil ici : <a href="{{path('homepage')}}"> Accueil </a></li>
-        <li>Les produits ici : <a href="{{path('products')}}"> Produits </a></li>
-    </ul>
-</div>
+    <form class="form_contact_coffeeshop" method="post">
+
+    </form>
+</section>
+
+<script src="{{ asset('js/slider.js') }}"></script>
 {% endblock %}

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
             <link href="{{asset('css/main.css')}}" type="text/css" rel="stylesheet" />
@@ -12,6 +12,51 @@
         {% endblock %}
     </head>
     <body>
+        <header>
+            <div class="content-top">
+                <nav class="content-navbar">
+                    <ul class="navbar">
+                        <li>
+                            <a href="{{path('homepage')}}">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about-us">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{path('products')}}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{path('contact')}}">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="content-name">
+                <h1 class="name">
+                    Coffeera
+                </h1>
+            </div>
+            <div class="content-btn-shop">
+                <button class="btn btn-shop">
+                    <span class="label">
+                        Shop Now
+                    </span>
+                </button>
+            </div>
+        </header>
+        {#Block utile entre header et le carousel#}
+        <section class="block-brown"></section>
         {% block body %}{% endblock %}
     </body>
 </html>
