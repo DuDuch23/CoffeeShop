@@ -6,13 +6,14 @@
 
 <section class="container-form-contact">
     <h1>Contactez nous</h1>
-    {% if message is defined %}
-        <p>{{ message }}</p>
-    {% endif %}
-
-    <form class="form_contact_coffeeshop" method="post">
-
-    </form>
+    {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.telephone) }}
+        {{ form_row(form.message) }}
+        <button type="submit">Envoyer</button>
+    {{ form_end(form) }}
 </section>
 
 <script src="{{ asset('js/slider.js') }}"></script>
