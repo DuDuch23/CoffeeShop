@@ -47,6 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         showSlide(currentSlide - 1);
     }
 
-    //c'est un autoslide de 5s
+    //c'est un autoslide de 10s
     setInterval(nextSlide, 10000);
 });

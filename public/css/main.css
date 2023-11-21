@@ -110,7 +110,7 @@ a{
 }
 
 .slider{
-
+    width: 100%;
 }
 
 .container-slider{
@@ -126,16 +126,8 @@ a{
     height: 850px;
 }
 
-.container-slider:first-child{
-    opacity: 1;
-}
-
 .slider-item{
     display: none;
-}
-
-.slider-item:first-child{
-    
 }
 
 .active{
