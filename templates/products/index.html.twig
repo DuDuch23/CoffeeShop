@@ -4,9 +4,25 @@
 
 {% block body %}
 
-<section class="container-products" style="height: 1000px; background-color: #C2B288; display: flex; justify-content: center;">
-    <div style=" width: 75%; display: flex; justify-content: center;">
-        <p>ezf</p>
+<section class="container-products" style="background-color: #C2B288; display: flex; justify-content: center;">
+    <div style=" width: 75%; display: grid; justify-content: center;">
+        <h1 style="text-align:center;">Nos produits</h1>
+        {% for product in products %}
+            <div class="product" style="display: flex;">
+                <img src="{{ product.picture }}" style="width: 300px; height: 200px;">
+                <div class="content-info" style="display: flex;">
+                    <div class="content-name-family-country">
+                        <p>{{ product.name }}</p>
+                        <p>{{ product.family }}</p>
+                        <p>{{ product.country }}</p>
+                    </div>
+                    <div class="content-name-family-country">
+                        <p>{{ product.note }}</p>
+                        <p>{{ product.price }} €</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

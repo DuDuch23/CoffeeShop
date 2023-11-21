@@ -6,55 +6,23 @@
 
 <section class="content-background-slider" data-ride="carousel">
     <div class="slider">
-
-        <div class="first-slider slider-item active">
-            <div class="content-title-description-btn">
-                <div class="title-description-btn">
-                    <h1 class="title-slider">Would you like a Cup of Delicious Coffee?</h1>
-                    <p class="description-slider">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
-                    <div class="content-btn-shop">
-                        <button class="btn btn-shop">
-                            <span class="label">
-                                Learn More
-                            </span>
-                        </button>
+        {% for slider in sliders %}
+            <div class="container-slider slider-item" style="background-image: {{ slider.picture }};">
+                <div class="content-title-description-btn">
+                    <div class="title-description-btn">
+                        <h1 class="title-slider">{{ slider.title }}</h1>
+                        <p class="description-slider">{{ slider.content }}</p>
+                        <div class="content-btn-shop">
+                            <button class="btn btn-shop">
+                                <span class="label">
+                                    {{ slider.button }}
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="second-slider slider-item">
-            <div class="content-title-description-btn">
-                <div class="title-description-btn">
-                    <h1 class="title-slider">Would you like a Cup of Delicious Coffee?</h1>
-                    <p class="description-slider">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
-                    <div class="content-btn-shop">
-                        <button class="btn btn-shop">
-                            <span class="label">
-                                Learn More
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="third-slider slider-item">
-            <div class="content-title-description-btn">
-                <div class="title-description-btn">
-                    <h1 class="title-slider">Would you like a Cup of Delicious Coffee?</h1>
-                    <p class="description-slider">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
-                    <div class="content-btn-shop">
-                        <button class="btn btn-shop">
-                            <span class="label">
-                                Learn More
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
 </section>
 
@@ -72,42 +40,17 @@
     <div>
         <h1 style="text-align: center;">Café en Tendance</h1>
         <div class="list-tendency-products" style="display: grid; grid-template-columns: repeat(3, minmax(0, 3fr)); gap: 20px ;">
+        {% for tendencyProduct in tendencyProducts %}
             <div class="product">
                 <div class="content-img">
-                    <img src="{{ ('media/macchiato.jpeg') }}" alt="macchiato">
+                    <img src="{{ tendencyProduct.picture }}" alt="{{ tendencyProduct.name }}">
                 </div>
-                <h1 style="text-align: center;">Macchiato</h1>
+                <h1 style="text-align: center;">{{ tendencyProduct.name }}</h1>
                 <div class="content-text-product" style="display: flex; justify-content: center;">
-                    <p style="width: 100px; text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+                    <p style="width: 100px; text-align: center;">{{ tendencyProduct.content }}</p>
                 </div>
             </div>
-            <div class="product">
-                <div class="content-img">
-                    <img src="{{ ('media/macchiato.jpeg') }}" alt="macchiato">
-                </div>
-                <h1 style="text-align: center;">Macchiato</h1>
-                <div class="content-text-product" style="display: flex; justify-content: center;">
-                    <p style="width: 100px; text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="content-img">
-                    <img src="{{ ('media/macchiato.jpeg') }}" alt="macchiato">
-                </div>
-                <h1 style="text-align: center;">Macchiato</h1>
-                <div class="content-text-product" style="display: flex; justify-content: center;">
-                    <p style="width: 100px; text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="content-img">
-                    <img src="{{ ('media/macchiato.jpeg') }}" alt="macchiato">
-                </div>
-                <h1 style="text-align: center;">Macchiato</h1>
-                <div class="content-text-product" style="display: flex; justify-content: center;">
-                    <p style="width: 100px; text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                </div>
-            </div>
+        {% endfor %}
         </div>
     </div>
 </section>
@@ -116,32 +59,21 @@
     <div>
         <h1>Que penses nos clients de la qualité de nos services ?</h1>
         <div class="list-service-quality">
-            <div class="service-quality" style="display: flex;">
-                <div class="content-coffee">
-                    <img src="{{ ('media/cafe-noir.jpeg') }}" alt="cafe-noir">
-                </div>
-                <div class="content-people">
-                    <div class="content-img-people">
-                        <img class="img-people" src="{{ ('media/people1.jpg') }}">
+            {% for serviceQuality in serviceQualitys %}
+                <div class="service-quality" style="display: flex;">
+                    <div class="content-coffee">
+                        <img src="{{ serviceQuality.pictureCoffeeLike }}" alt="{{ serviceQuality.nameCoffeeLike }}">
                     </div>
-                    <div class="content-text-people">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="service-quality" style="display: flex;">
-                <div class="content-people">
-                    <div class="content-img-people">
-                        <img class="img-people" src="{{ ('media/people2.jpg') }}">
-                    </div>
-                    <div class="content-text-people">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <div class="content-people">
+                        <div class="content-img-people">
+                            <img class="img-people" src="{{ serviceQuality.picturePeople }}">
+                        </div>
+                        <div class="content-text-people">
+                        <p>{{ serviceQuality.content }}</p>
+                        </div>
                     </div>
                 </div>
-                <div class="content-coffee">
-                    <img src="{{ ('media/cappuccino.jpeg') }}" alt="cappuccino">
-                </div>
-            </div>
+            {% endfor %}            
         </div>
     </div>
 </section>

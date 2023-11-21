@@ -113,8 +113,7 @@ a{
 
 }
 
-.first-slider{
-    background-image: url(/media/background-coffee1.jpg);
+.container-slider{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -127,36 +126,16 @@ a{
     height: 850px;
 }
 
-.second-slider{
-    background-image: url(/media/background-coffee2.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border-style: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    width: 100%;
-    height: 850px;
-}
-
-.third-slider{
-    background-image: url(/media/background-coffee3.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border-style: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    width: 100%;
-    height: 850px;
+.container-slider:first-child{
+    opacity: 1;
 }
 
 .slider-item{
     display: none;
+}
+
+.slider-item:first-child{
+    
 }
 
 .active{

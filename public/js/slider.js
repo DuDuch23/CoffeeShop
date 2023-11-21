@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function ()
         {
             fadeOut(slides[currentSlide]);
-        }, 4000);
+        }, 9000);
     }
 
     function fadeOut(element)
@@ -48,5 +48,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //c'est un autoslide de 5s
-    setInterval(nextSlide, 5000);
+    setInterval(nextSlide, 10000);
 });
