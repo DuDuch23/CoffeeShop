@@ -12,3 +12,6 @@ products:
 contact:
     path: /contact
     controller: App\Controller\ContactController::contact
+admin:
+    path: /admin
+    controller: App\Controller\Admin\MainController::admin

@@ -2,49 +2,95 @@
 
 namespace App\Entity;
 
+use App\Repository\ContactRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
-    private int $id;
-    private string $lastname;
-    private string $firstname;
-    private string $email;
-    private int $phone;
-    private string $message;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    public function __construct(string $lastname, string $firstname, string $email, int $phone, string $message) {
-        $this->lastname = $lastname;
-        $this->firstname = $firstname;
-        $this->email = $email;
-        $this->phone = $phone;
-        $this->message = $message;
-    }
+    #[ORM\Column(length: 255)]
+    private ?string $last_name = null;
 
-    public function getId(): int 
+    #[ORM\Column(length: 255)]
+    private ?string $first_name = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $email = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $phone = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $message = null;
+
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getLastname(): string
+    public function getLastName(): ?string
     {
-        return $this->lastname;
+        return $this->last_name;
     }
 
-    public function getFirstname(): string
+    public function setLastName(string $last_name): static
     {
-        return $this->firstname;
+        $this->last_name = $last_name;
+
+        return $this;
     }
 
-    public function getEmail(): string
+    public function getFirstName(): ?string
+    {
+        return $this->first_name;
+    }
+
+    public function setFirstName(string $first_name): static
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    public function getPhone(): string
+    public function setEmail(?string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPhone(): ?int
     {
         return $this->phone;
     }
-    public function getMessage(): string
+
+    public function setPhone(?int $phone): static
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
     {
         return $this->message;
+    }
+
+    public function setMessage(string $message): static
+    {
+        $this->message = $message;
+
+        return $this;
     }
 }
