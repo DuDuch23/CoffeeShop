@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Brand;
+use App\Entity\Category;
+use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,8 +13,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductsController extends AbstractController
 {
     #[Route('/products', name: 'products')]
-    public function getProducts(): Response
+    public function getProducts(EntityManagerInterface $entityManager): Response
     {
+        // $products = new Product();
+        // $products->setName("Macchiato");
+        // $products->setDescription("test");
+        // $products->setPrice(10);
+        // $products->setNote(10);
+        // $products->setFamily("Epicée");
+        // $products->setCountry("Italie");
+
+        // $category = new Category();
+        // $category->setName("café en grain");
+        // $products->setNameCategory($category);
+
+        // $brand = new Brand();
+        // $brand->setName("Marque locale");
+        // $products->setNameBrand($brand);
+
         $products = [
             [
                 'picture' => ('media/macchiato.jpeg'),
@@ -62,8 +82,14 @@ class ProductsController extends AbstractController
             ],
         ];
 
+        // $entityManager->persist($products);
+
+        // $entityManager->flush();
+
         return $this->render('products/index.html.twig', [
-            'products'=> $products
+            'products'=> $products,
+            // 'product_name' => $products->getName(),
+            // 'reponse' => new Response("test : " . $products->getId()),
         ]);
     }
 }

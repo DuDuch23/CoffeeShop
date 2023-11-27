@@ -40,6 +40,17 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?Brand $name_brand = null;
 
+    // public function __construct(string $name, string $description, int $price, int $note, string $family, string $country, Category $name_category, Brand $name_brand) {
+    //     $this->name = $name;
+    //     $this->description = $description;
+    //     $this->price = $price;
+    //     $this->note = $note;
+    //     $this->family = $family;
+    //     $this->country = $country;
+    //     $this->name_category = $name_category;
+    //     $this->name_brand = $name_brand;
+    // }
+
     public function getId(): ?int
     {
         return $this->id;
