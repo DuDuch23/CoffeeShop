@@ -5,11 +5,12 @@
 {% block body %}
 
 <section class="container-products" style="background-color: #C2B288; display: flex; justify-content: center;">
-    <div style=" width: 75%; display: grid; justify-content: center;">
+    <div style=" width: 75%; display: grid; gap: 100px; justify-content: center;">
         <h1 style="text-align:center;">Nos produits</h1>
         {% for product in products %}
-            <div class="product" style="display: flex;">
-                <img src="{{ product.picture }}" style="width: 300px; height: 200px;">
+        <a href="#">
+            <div class="product" style="display: flex; padding: 20px; background-color: #606B5F; border-radius: 15px; justify-content: space-between;">
+                <img src="{{ asset('media/american-coffee.webp') }}" style="width: 300px; height: 200px;">
                 <div class="content-info" style="display: flex;">
                     <div class="content-name-family-country">
                         <p>{{ product.name }}</p>
@@ -20,8 +21,18 @@
                         <p>{{ product.note }}</p>
                         <p>{{ product.price }} €</p>
                     </div>
+                    <div>
+                        <p>{{ product.description }}</p>
+                    </div>
                 </div>
+                {% if product.bestSeller == true %}
+                    <img src="{{ ('media/best_seller.gif') }}" style="width: 80px; height: 80px; position: relative; top: 180px; left: 30px;">
+                {% endif %}
+                {% if product.bestSeller == false %}
+                    <img src="{{ ('media/goofy.gif') }}" style="width: 80px; height: 80px; position: relative; top: 180px; left: 30px;">
+                {% endif %}
             </div>
+        </a>
         {% endfor %}
         {# <p>{{ product_name }}</p> #}
     </div>

@@ -14,42 +14,32 @@ class Product
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?int $price = null;
+    private ?float $price = null;
 
-    #[ORM\Column(type: Types::SMALLINT)]
-    private ?int $note = null;
+    #[ORM\Column]
+    private ?float $note = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $family = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $country = null;
 
-    #[ORM\OneToOne(inversedBy: 'product', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Category $name_category = null;
+    #[ORM\Column(nullable: true)]
+    private ?bool $best_seller = null;
 
-    #[ORM\OneToOne(inversedBy: 'product', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Brand $name_brand = null;
+    #[ORM\ManyToOne]
+    private ?Category $category = null;
 
-    // public function __construct(string $name, string $description, int $price, int $note, string $family, string $country, Category $name_category, Brand $name_brand) {
-    //     $this->name = $name;
-    //     $this->description = $description;
-    //     $this->price = $price;
-    //     $this->note = $note;
-    //     $this->family = $family;
-    //     $this->country = $country;
-    //     $this->name_category = $name_category;
-    //     $this->name_brand = $name_brand;
-    // }
+    #[ORM\ManyToOne]
+    private ?Brand $brand = null;
 
     public function getId(): ?int
     {
@@ -80,24 +70,24 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): static
+    public function setPrice(float $price): static
     {
         $this->price = $price;
 
         return $this;
     }
 
-    public function getNote(): ?int
+    public function getNote(): ?float
     {
         return $this->note;
     }
 
-    public function setNote(int $note): static
+    public function setNote(float $note): static
     {
         $this->note = $note;
 
@@ -128,26 +118,38 @@ class Product
         return $this;
     }
 
-    public function getNameCategory(): ?Category
+    public function isBestSeller(): ?bool
     {
-        return $this->name_category;
+        return $this->best_seller;
     }
 
-    public function setNameCategory(Category $name_category): static
+    public function setBestSeller(?bool $best_seller): static
     {
-        $this->name_category = $name_category;
+        $this->best_seller = $best_seller;
 
         return $this;
     }
 
-    public function getNameBrand(): ?Brand
+    public function getCategory(): ?Category
     {
-        return $this->name_brand;
+        return $this->category;
     }
 
-    public function setNameBrand(Brand $name_brand): static
+    public function setCategory(?Category $category): static
     {
-        $this->name_brand = $name_brand;
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?Brand $brand): static
+    {
+        $this->brand = $brand;
 
         return $this;
     }

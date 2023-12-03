@@ -16,9 +16,6 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToOne(mappedBy: 'name_category', cascade: ['persist', 'remove'])]
-    private ?Product $product = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -32,23 +29,6 @@ class Category
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getProduct(): ?Product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(Product $product): static
-    {
-        // set the owning side of the relation if necessary
-        if ($product->getNameCategory() !== $this) {
-            $product->setNameCategory($this);
-        }
-
-        $this->product = $product;
 
         return $this;
     }
