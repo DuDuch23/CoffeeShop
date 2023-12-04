@@ -43,11 +43,11 @@
         {% for tendencyProduct in tendencyProducts %}
             <div class="product">
                 <div class="content-img">
-                    <img src="{{ tendencyProduct.picture }}" alt="{{ tendencyProduct.name }}">
+                    <img src="" alt="{{ tendencyProduct.name }}">
                 </div>
                 <h1 style="text-align: center;">{{ tendencyProduct.name }}</h1>
                 <div class="content-text-product" style="display: flex; justify-content: center;">
-                    <p style="width: 100px; text-align: center;">{{ tendencyProduct.content }}</p>
+                    <p style="width: 100px; text-align: center;">{{ tendencyProduct.description }}</p>
                 </div>
             </div>
         {% endfor %}

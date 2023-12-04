@@ -1,0 +1,11 @@
+{% block title %}Liste des Marques{% endblock %}
+
+{% block body %}
+    <h1>Liste des Marques</h1>
+
+    <ul>
+        {% for brand in brands %}
+            <li>{{ brand.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

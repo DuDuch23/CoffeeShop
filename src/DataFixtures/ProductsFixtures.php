@@ -2,59 +2,62 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Brand;
-use App\Entity\Category;
 use App\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Faker;
 
 class ProductsFixtures extends Fixture implements DependentFixtureInterface
 {
-    public const PRODUCTS = [
-        [
-            'name' => 'Lavazza',
-            'description'=> 'test',
-            'price' => 2,
-            'note' => 9,
-            'family' => 'test',
-            'country' => 'test',
-            'best_seller' => true,
-        ],
-        [
-            'name' => 'Lavazza',
-            'description'=> 'test',
-            'price' => 2,
-            'note' => 9,
-            'family' => 'test',
-            'country' => 'test',
-            'best_seller' => false,
-        ]
-    ];
-
-    public function load(ObjectManager $manager)
+    // public const PRODUCT = [
+    //     [
+    //         'name' => 'Lavazza',
+    //     ]
+    // ]
+    public function load(ObjectManager $manager): void
     {
-        for ($i = 0; $i < 20; ++$i)
+        $faker = Faker\Factory::create('fr_FR');
+
+        for($nbProduct = 1; $nbProduct <= 30; $nbProduct++)
         {
             $product = new Product();
-            $product->setName('name' . $i);
-            $product->setDescription('description'. $i);
-            $product->setPrice(6);
-            $product->setNote(9.5. $i);
-            $product->setFamily('Café aromatisé'. $i);
-            $product->setCountry('France'. $i);
-            $product->isBestSeller();
-            $product->setCategory($this->getReference('categorie-' . rand(1,2)));
-            $product->setBrand($this->getReference('marque'. rand(1,2)));
+            if(rand(0,1) === 1)
+            {
+                $product->setCategory($this->getReference(CategoryFixtures::MOULU));
+            }
+            else
+            {
+                $product->setCategory($this->getReference(CategoryFixtures::GRAIN));
+            }
+
+            if(rand(0,1) === 1)
+            {
+                $product->setBrand($this->getReference(BrandFixtures::NESPRESSO));
+            }
+            else
+            {
+                $product->setBrand($this->getReference(BrandFixtures::LAVAZZA));
+            }
+
+            $product->setName($faker->name);
+            $product->setDescription($faker->text);
+            $product->setPrice($faker->randomFloat(2,2,10));
+            $product->setNote($faker->randomFloat(2,0,10));
+            $product->setFamily($faker->randomElement(['Robusta','Arabica','Pacamara']));
+            $product->setCountry($faker->randomElement(['France','Angleterre','Mexique']));
+            $product->setBestSeller($faker->boolean);
 
             $manager->persist($product);
         }
+        $manager->flush();
     }
 
-    public function getDependencies(): array
+    public function getDependencies()
     {
         return [
-            CategoryFixtures::class
+            CategoryFixtures::class,
+            BrandFixtures::class,
         ];
     }
 }

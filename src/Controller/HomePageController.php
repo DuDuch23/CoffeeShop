@@ -3,24 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Slider;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomePageController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
-    public function home(EntityManagerInterface $entityManager): Response
+    public function home(ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
     {
-        // $sliders = new Slider();
-        // $sliders->setTitle("Le meilleur café du moment !");
-        // $sliders->setContent("Laissez-vous séduire par la passion du café, de la plantation à la tasse. Explorez des saveurs uniques, 
-        // des notes subtiles et des profils de torréfaction équilibrés qui éveilleront vos sens. Que vous soyez amateur de cafés corsés, 
-        // d\'espressos intenses ou de délices aromatisés, notre collection saura satisfaire les palais les plus exigeants.");
-        // $sliders->setButtonLink("redirectLink");
-        // $sliders->setButtonText("redirectLink");
-
         $sliders = [
             [
                 'picture' => 'url(/media/background-coffee1.jpg)',
@@ -47,28 +41,9 @@ class HomePageController extends AbstractController
             ],
         ];
 
-        $tendencyProducts = [
-            [
-                'picture' => ('media/macchiato.jpeg'),
-                'name' => 'Macchiato',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-            ],
-            [
-                'picture' => ('media/cafe-noir.jpeg'),
-                'name' => 'Café Noir',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-            ],
-            [
-                'picture' => ('media/cappuccino.jpeg'),
-                'name' => 'Cappuccino',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-            ],
-            [
-                'picture' => ('media/macchiato.jpeg'),
-                'name' => 'Macchiato',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-            ],
-        ];
+        $tendencyProducts = $productRepository->findBy([
+            'best_seller' => true,
+        ]);
 
         $serviceQualitys = [
             [
@@ -84,10 +59,6 @@ class HomePageController extends AbstractController
                 'content' => 'J\'ai adoré gouté le cappuccino, je reviendrais !',
             ],
         ];
-
-        // $entityManager->persist($sliders);
-
-        // $entityManager->flush();
 
         return $this->render('home_page/index.html.twig', [
             'sliders'=> $sliders,

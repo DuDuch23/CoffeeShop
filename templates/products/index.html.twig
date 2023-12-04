@@ -13,16 +13,16 @@
                 <img src="{{ asset('media/american-coffee.webp') }}" style="width: 300px; height: 200px;">
                 <div class="content-info" style="display: flex;">
                     <div class="content-name-family-country">
-                        <p>{{ product.name }}</p>
-                        <p>{{ product.family }}</p>
-                        <p>{{ product.country }}</p>
+                        <p>Nom de café : {{ product.name }}</p>
+                        <p>Famille : {{ product.family }}</p>
+                        <p>Origine {{ product.country }}</p>
                     </div>
                     <div class="content-name-family-country">
-                        <p>{{ product.note }}</p>
-                        <p>{{ product.price }} €</p>
+                        <p>Note : {{ product.note }} / 10</p>
+                        <p>Prix : {{ product.price }} €</p>
                     </div>
                     <div>
-                        <p>{{ product.description }}</p>
+                        <p> Description : {{ product.description }}</p>
                     </div>
                 </div>
                 {% if product.bestSeller == true %}
@@ -34,7 +34,76 @@
             </div>
         </a>
         {% endfor %}
-        {# <p>{{ product_name }}</p> #}
+
+        <nav aria-label="Page navigation example" style="width: 100%;display: flex;justify-content: center;">
+            <ul class="pagination" style=" width: 50%; display: flex; justify-content: space-around;">
+                {% if currentPage > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('products', {
+                            page: currentPage - 1
+                        }) }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Page précédente</span>
+                        </a>
+                    </li>
+                {% endif %}
+    
+                {% set availablePages = countPages > 3 ? 3 : countPages %}
+    
+                {% if currentPage == 1 %}
+                    {% for i in range (1, availablePages) %}
+                        <li class="page-item {{ currentPage == i ? 'active' }}"><a class="page-link" href="{{ path('products', {
+                                page: i
+                            }) }}">{{ i }}</a></li>
+                    {% endfor %}
+                {% elseif currentPage == countPages %}
+                    {% for i in range (countPages - (availablePages - 1), countPages|reverse) %}
+                        <li class="page-item {{ currentPage == i ? 'active' }}">
+                            <a class="page-link" href="{{ path('products', {
+                                page: i
+                            }) }}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('products', {
+                            page: currentPage - 1
+                        }) }}">{{ currentPage - 1}}</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="{{ path('products', {
+                            page: currentPage
+                        }) }}">{{ currentPage }}</a></li>
+                    <li class="page-item"><a class="page-link" href="{{ path('products', {
+                            page: currentPage + 1
+                        }) }}
+                    ">{{ currentPage + 1 }}</a></li>
+                {% endif %}
+    
+    
+    {#            {% for i in range (1, 3) %}#}
+    {#                {% if currentPage == 1 %}#}
+    {#                    <li class="page-item"><a class="page-link" href="#">{{ i }}</a></li>#}
+    {#                {% elseif currentPage == countPages %}#}
+    {#                    {% set end = 2 %}#}
+    {#                    <li class="page-item"><a class="page-link" href="#">{{ i - end }}</a></li>#}
+    {#                    {% set end = end - 1 %}#}
+    {#                {% endif %}#}
+    {#            {% endfor %}#}
+    
+    
+                {% if currentPage < countPages %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path('products', {
+                            page: currentPage + 1
+                        }) }}" aria-label="Next">
+                            <span class="sr-only">Page suivante</span>
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    
     </div>
 </section>
 {% endblock %}

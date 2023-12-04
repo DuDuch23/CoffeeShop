@@ -21,6 +21,14 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function paginate(int $page, int $itemsPerPage): array
+    {
+        return $this->createQueryBuilder('p')
+            ->setFirstResult(($page -1) * $itemsPerPage)
+            ->setMaxResults($itemsPerPage)
+            ->getQuery()
+            ->execute();
+    }
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */

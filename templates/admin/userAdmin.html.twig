@@ -1,0 +1,11 @@
+{% block title %}Liste des Comptes Admins{% endblock %}
+
+{% block body %}
+    <h1>Liste des Comptes Admins</h1>
+
+    <ul>
+        {% for admin in admins %}
+            <li>{{ admin.email }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

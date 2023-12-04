@@ -1,0 +1,15 @@
+{% block title %}Liste des Contact{% endblock %}
+
+{% block body %}
+    <h1>Liste des Contact</h1>
+
+    <ul>
+        {% for contact in contacts %}
+            <p>Nom de famille : {{ contact.last_name }}</p>
+            <p>Prénom : {{ contact.first_name }}</p>
+            <p>Email : {{ contact.email }}</p>
+            <p>Numéro de téléphone : {{ contact.phone }}</p>
+            <p>Message : {{ contact.message }}</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% block title %}Liste des Produits{% endblock %}
+
+{% block body %}
+    <h1>Liste des Produits</h1>
+
+    <ul>
+        {% for product in products %}
+            <li>Nom : {{ product.name }}</li>
+            <p>Description : {{ product.description }}</p>
+            <p>Famille : {{ product.family }}</p>
+            <p>Origine : {{ product.country }}</p>
+            <p>Note : {{ product.note }}</p>
+            <p>Prix : {{ product.price }}</p>
+
+            {% if product.bestSeller == true %}
+                <p>En tendance : oui</p>
+            {% else %}
+                <p>En tendance : non</p>
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+{% endblock %}

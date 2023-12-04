@@ -1,0 +1,11 @@
+{% block title %}Liste des Categories{% endblock %}
+
+{% block body %}
+    <h1>Liste des Categories</h1>
+
+    <ul>
+        {% for category in categorys %}
+            <li>{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

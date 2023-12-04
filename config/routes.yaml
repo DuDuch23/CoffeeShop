@@ -12,6 +12,21 @@ products:
 contact:
     path: /contact
     controller: App\Controller\ContactController::contact
-admin:
-    path: /admin
-    controller: App\Controller\Admin\MainController::admin
+userAdmin:
+    path: /admin/userAdmin
+    controller: App\Controller\Admin\AdminController::listAdmin
+brand_list:
+    path: '/admin/brand'
+    controller: 'App\Controller\Admin\BrandController::listBrand'
+category_list:
+    path: '/admin/category'
+    controller: 'App\Controller\Admin\CategoryController::listCategory'
+contact_list:
+    path: '/admin/contact'
+    controller: 'App\Controller\Admin\ContactController::listContact'
+products_list:
+    path: '/admin/products'
+    controller: 'App\Controller\Admin\ProductsController::listProducts'
+slider_list:
+    path: '/admin/slider'
+    controller: 'App\Controller\Admin\SliderController::listSlider'
