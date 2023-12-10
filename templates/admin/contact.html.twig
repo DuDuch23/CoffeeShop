@@ -5,8 +5,9 @@
 
     <ul>
         {% for contact in contacts %}
-            <p>Nom de famille : {{ contact.last_name }}</p>
-            <p>Prénom : {{ contact.first_name }}</p>
+            <li>Contact</li>
+            <p>Nom de famille : {{ contact.lastName }}</p>
+            <p>Prénom : {{ contact.firstName }}</p>
             <p>Email : {{ contact.email }}</p>
             <p>Numéro de téléphone : {{ contact.phone }}</p>
             <p>Message : {{ contact.message }}</p>
