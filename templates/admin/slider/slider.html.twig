@@ -8,9 +8,9 @@
     <ul>
         {% for slider in sliders %}
             <li>{{ slider.title }}</li>
-            <li>{{ slider.content }}</li>
-            <li>{{ slider.button_link }}</li>
-            <li>{{ slider.button_text }}</li>
+            <p>{{ slider.content }}</p>
+            <p>{{ slider.buttonLink }}</p>
+            <p>{{ slider.buttonText }}</p>
         {% endfor %}
     </ul>
 {% endblock %}

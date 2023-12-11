@@ -21,10 +21,10 @@ class Slider
     private ?string $content = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $button_link = null;
+    private ?string $buttonLink = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $button_text = null;
+    private ?string $buttonText = null;
 
     public function getId(): ?int
     {
@@ -57,24 +57,24 @@ class Slider
 
     public function getButtonLink(): ?string
     {
-        return $this->button_link;
+        return $this->buttonLink;
     }
 
-    public function setButtonLink(?string $button_link): static
+    public function setButtonLink(?string $buttonLink): static
     {
-        $this->button_link = $button_link;
+        $this->buttonLink = $buttonLink;
 
         return $this;
     }
 
     public function getButtonText(): ?string
     {
-        return $this->button_text;
+        return $this->buttonText;
     }
 
-    public function setButtonText(?string $button_text): static
+    public function setButtonText(?string $buttonText): static
     {
-        $this->button_text = $button_text;
+        $this->buttonText = $buttonText;
 
         return $this;
     }
