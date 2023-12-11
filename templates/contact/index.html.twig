@@ -7,12 +7,11 @@
 <section class="container-form-contact">
     <h1>Contactez nous</h1>
     {{ form_start(form) }}
-        {{ form_row(form.nom) }}
-        {{ form_row(form.prenom) }}
+        {{ form_row(form.last_name) }}
+        {{ form_row(form.first_name) }}
         {{ form_row(form.email) }}
-        {{ form_row(form.telephone) }}
+        {{ form_row(form.phone) }}
         {{ form_row(form.message) }}
-        <button type="submit">Envoyer</button>
     {{ form_end(form) }}
 </section>
 

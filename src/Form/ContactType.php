@@ -15,7 +15,7 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class, [
+            ->add('last_name', TextType::class, [
                 'label' => 'Nom : ',
                 'attr' => [
                     'class' => 'form-control',
@@ -23,7 +23,7 @@ class ContactType extends AbstractType
                     'placeholder' => 'Nom',
                 ],
             ])
-            ->add('prenom', TextType::class, [
+            ->add('first_name', TextType::class, [
                 'label' => 'Prénom : ',
                 'attr' => [
                     'class' => 'form-control',
@@ -39,7 +39,7 @@ class ContactType extends AbstractType
                     'placeholder' => 'E-mail',
                 ],
             ])
-            ->add('telephone', TextType::class, [
+            ->add('phone', TextType::class, [
                 'label' => 'Téléphone : ',
                 'attr' => [
                     'class' => 'form-control',
