@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Slider;
 use App\Form\SliderType;
 use App\Repository\SliderRepository;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +25,7 @@ class SliderController extends AbstractController
     }
 
     #[Route('/edit/{id}', name: 'edit')]
-    public function edit(Request $request, Slider $slider, EntityManager $entityManager): Response
+    public function edit(Request $request, Slider $slider, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(SliderType::class, $slider, [
             'method' => 'POST',
@@ -37,12 +37,11 @@ class SliderController extends AbstractController
         {
             if($form->isValid())
             {
-                dd('formulaire valide');
                 $entityManager->flush();
-            }
-            else
-            {
-                dd('formulaire invalide');
+
+                return $this->redirectToRoute('admin_sliders_edit', [
+                    'id' => $slider->getId(),
+                ]);
             }
         }
 
