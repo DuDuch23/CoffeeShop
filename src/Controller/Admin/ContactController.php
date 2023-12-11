@@ -7,9 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route(path: '/contacts', name: 'admin_contacts_')]
 class ContactController extends AbstractController
 {
-    #[Route('/admin/contact', name: 'admin_contact')]
+    #[Route('/', name: 'index')]
     public function listContact(ContactRepository $contactRepository): Response
     {
         $contacts = $contactRepository->findAll();

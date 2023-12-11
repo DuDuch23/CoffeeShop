@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Repository\Traits\PaginateTrait;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,14 +22,8 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function paginate(int $page, int $itemsPerPage): array
-    {
-        return $this->createQueryBuilder('p')
-            ->setFirstResult(($page -1) * $itemsPerPage)
-            ->setMaxResults($itemsPerPage)
-            ->getQuery()
-            ->execute();
-    }
+    use PaginateTrait;
+
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */

@@ -33,7 +33,7 @@ class ProductsController extends AbstractController
             throw $this->createNotFoundException();
         }
         
-        $products = $productRepository->paginate($currentPage, $countPerPage);
+        $products = $productRepository->paginate('p', $currentPage, $countPerPage);
 
         return $this->render('products/index.html.twig', [
             'products'=> $products,

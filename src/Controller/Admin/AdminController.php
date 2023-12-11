@@ -7,9 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route(path: '/admins', name: 'admin_users_admins_')]
 class AdminController extends AbstractController
 {
-    #[Route('/admin/user_admin', name: 'admin_user_admin')]
+    #[Route('/', name: 'index')]
     public function listAdmin(AdminRepository $adminRepository): Response
     {
         $admins = $adminRepository->findAll();

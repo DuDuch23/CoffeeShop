@@ -2,14 +2,15 @@
 
 namespace App\Form;
 
-use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Text;
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FormulaireContactType extends AbstractType
+class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -53,13 +54,17 @@ class FormulaireContactType extends AbstractType
                     'id' => 'message',
                     'placeholder' => 'Message',
                 ],
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Envoyer',
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            // on indique au formulaire qu'il représente la classe Contact
+            'data_class' => Contact::class,
         ]);
     }
 }

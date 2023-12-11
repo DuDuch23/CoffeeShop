@@ -5,21 +5,39 @@
 {% block body %}
     <h1>Liste des Produits</h1>
 
-    <ul>
-        {% for product in products %}
-            <li>Nom : {{ product.name }}</li>
-            <p>Description : {{ product.description }}</p>
-            <p>Famille : {{ product.family }}</p>
-            <p>Origine : {{ product.country }}</p>
-            <p>Note : {{ product.note }}</p>
-            <p>Prix : {{ product.price }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Famille</th>
+                <th>Origine</th>
+                <th>Note</th>
+                <th>Prix</th>
+                <th>Tendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for product in products %}
+                <th>
+                {{ product.name }}
+                {{ product.description }}
+                {{ product.family }}
+                {{ product.country }}
+                {{ product.note }}
+                {{ product.price }}
 
-            {% if product.bestSeller == true %}
-                <p>En tendance : oui</p>
-            {% else %}
-                <p>En tendance : non</p>
-            {% endif %}
+                {% if product.bestSeller == true %}
+                    <p>En tendance : oui</p>
+                {% else %}
+                    <p>En tendance : non</p>
+                {% endif %}
+                </th>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
 
-        {% endfor %}
-    </ul>
+
 {% endblock %}

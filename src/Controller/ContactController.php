@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\FormulaireContactType;
+use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +13,7 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request): Response
     {
-        $form = $this->createForm(FormulaireContactType::class);
+        $form = $this->createForm(ContactType::class);
 
         $form->handleRequest($request);
 

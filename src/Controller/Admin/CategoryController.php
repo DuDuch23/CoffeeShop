@@ -7,9 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route(path: '/categories', name: 'admin_categories_')]
 class CategoryController extends AbstractController
 {
-    #[Route('/admin/category', name: 'admin_category')]
+    #[Route('/', name: 'index')]
     public function listCategory(CategoryRepository $categoryRepository): Response
     {
         $categorys = $categoryRepository->findAll();
