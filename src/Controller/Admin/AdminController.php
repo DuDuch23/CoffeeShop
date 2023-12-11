@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
-    #[Route('/admin/userAdmin', name: 'admin_userAdmin')]
+    #[Route('/admin/user_admin', name: 'admin_user_admin')]
     public function listAdmin(AdminRepository $adminRepository): Response
     {
         $admins = $adminRepository->findAll();
 
-        return $this->render('admin/userAdmin.html.twig', [
+        return $this->render('admin/user_admin/user_admin.html.twig', [
             'admins' => $admins,
         ]);
     }

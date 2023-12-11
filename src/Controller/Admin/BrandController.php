@@ -14,7 +14,7 @@ class BrandController extends AbstractController
     {
         $brands = $brandRepository->findAll();
 
-        return $this->render('admin/brand.html.twig', [
+        return $this->render('admin/brand/brand.html.twig', [
             'brands' => $brands,
         ]);
     }

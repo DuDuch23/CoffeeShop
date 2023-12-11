@@ -14,7 +14,7 @@ class ContactController extends AbstractController
     {
         $contacts = $contactRepository->findAll();
 
-        return $this->render('admin/contact.html.twig', [
+        return $this->render('admin/contact/contact.html.twig', [
             'contacts' => $contacts,
         ]);
     }

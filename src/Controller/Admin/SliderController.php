@@ -14,7 +14,7 @@ class SliderController extends AbstractController
     {
         $sliders = $sliderRepository->findAll();
 
-        return $this->render('admin/slider.html.twig', [
+        return $this->render('admin/slider/slider.html.twig', [
             'sliders' => $sliders,
         ]);
     }

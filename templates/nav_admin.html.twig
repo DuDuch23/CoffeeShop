@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+            <link href="{{asset('css/admin/admin.css')}}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <li>
+                <a href="{{ path('homepage') }}">Site public</a>
+            </li>
+            <nav class="content-navbar">
+                <ul class="navbar">
+                    <li>
+                        <a href="{{ path('admin_slider') }}">Slider</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_user_admin') }}">Compte admin</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_products') }}">Produits</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_brand') }}">Marques</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_category') }}">Categories</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_contact') }}">Demande de contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% block body %}{% endblock %}
+    </body>
+</html>

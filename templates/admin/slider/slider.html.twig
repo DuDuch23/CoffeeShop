@@ -1,0 +1,16 @@
+{% extends 'nav_admin.html.twig' %}
+
+{% block title %}Liste des Sliders{% endblock %}
+
+{% block body %}
+    <h1>Liste des Sliders</h1>
+
+    <ul>
+        {% for slider in sliders %}
+            <li>{{ slider.title }}</li>
+            <li>{{ slider.content }}</li>
+            <li>{{ slider.button_link }}</li>
+            <li>{{ slider.button_text }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
