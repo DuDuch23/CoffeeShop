@@ -5,9 +5,46 @@
 {% block body %}
     <h1>Liste des Marques</h1>
 
-    <ul>
-        {% for brand in brands %}
-            <li>{{ brand.name }}</li>
-        {% endfor %}
-    </ul>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        thead{
+            background: #878787;
+        }
+
+        tr{
+            height: 70px;
+        }
+
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        td{
+            background: #d9d9d9;
+        }
+    </style>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for brand in brands %}
+            <tr>
+                <td>{{ brand.name }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}

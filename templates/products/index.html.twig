@@ -27,8 +27,7 @@
                 </div>
                 {% if product.bestSeller == true %}
                     <img src="{{ ('media/best_seller.gif') }}" style="width: 80px; height: 80px; position: relative; top: 180px; left: 30px;">
-                {% endif %}
-                {% if product.bestSeller == false %}
+                {% else %}
                     <img src="{{ ('media/goofy.gif') }}" style="width: 80px; height: 80px; position: relative; top: 180px; left: 30px;">
                 {% endif %}
             </div>

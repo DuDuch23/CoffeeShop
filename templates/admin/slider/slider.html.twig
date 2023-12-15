@@ -5,12 +5,51 @@
 {% block body %}
     <h1>Liste des Sliders</h1>
 
-    <ul>
-        {% for slider in sliders %}
-            <li>{{ slider.title }}</li>
-            <p>{{ slider.content }}</p>
-            <p>{{ slider.buttonLink }}</p>
-            <p>{{ slider.buttonText }}</p>
-        {% endfor %}
-    </ul>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        thead{
+            background: #878787;
+        }
+
+        tr{
+            height: 70px;
+        }
+
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        td{
+            background: #d9d9d9;
+        }
+    </style>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Texte bouton</th>
+                <th>Lien bouton</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for slider in sliders %}
+            <tr>
+                <td>{{ slider.title }}</td>
+                <td style="width: 40%;">{{ slider.content }}</td>
+                <td>{{ slider.buttonText }}</td>
+                <td>{{ slider.buttonLink }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

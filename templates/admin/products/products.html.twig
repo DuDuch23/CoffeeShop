@@ -40,6 +40,7 @@
                 <th>Note</th>
                 <th>Prix</th>
                 <th>Tendance</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -52,10 +53,11 @@
                 <td>{{ product.note }} / 10</td>
                 <td>{{ product.price }} €</td>
                 {% if product.bestSeller == true %}
-                    <td>En tendance</td>
+                    <td><img src="{{ asset('media/best_seller.gif') }}" style="width: 80px; height: 80px;" alt="best seller"></td>
                 {% else %}
-                    <td>Pas en tendance</td>
+                    <td><img src="{{ asset('media/goofy.gif') }}" style="width: 80px; height: 80px;" alt="goofy"></td>
                 {% endif %}
+                <td></td>
             </tr>
             {% endfor %}
         </tbody>

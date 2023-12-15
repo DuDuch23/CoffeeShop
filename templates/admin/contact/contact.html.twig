@@ -5,14 +5,53 @@
 {% block body %}
     <h1>Liste des Contact</h1>
 
-    <ul>
-        {% for contact in contacts %}
-            <li>Contact</li>
-            <p>Nom de famille : {{ contact.lastName }}</p>
-            <p>Prénom : {{ contact.firstName }}</p>
-            <p>Email : {{ contact.email }}</p>
-            <p>Numéro de téléphone : {{ contact.phone }}</p>
-            <p>Message : {{ contact.message }}</p>
-        {% endfor %}
-    </ul>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        thead{
+            background: #878787;
+        }
+
+        tr{
+            height: 70px;
+        }
+
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        td{
+            background: #d9d9d9;
+        }
+    </style>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom de famille</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Numéro de téléphone</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.lastName }}</td>
+                <td>{{ contact.firstName }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.message }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

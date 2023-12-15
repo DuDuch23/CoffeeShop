@@ -5,9 +5,50 @@
 {% block body %}
     <h1>Liste des Comptes Admins</h1>
 
-    <ul>
-        {% for admin in admins %}
-            <li>{{ admin.email }}</li>
-        {% endfor %}
-    </ul>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        thead{
+            background: #878787;
+        }
+
+        tr{
+            height: 70px;
+        }
+
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        td{
+            background: #d9d9d9;
+        }
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for admin in admins %}
+            <tr>
+                <td>{{ admin.email }}</td>
+                {% if "ROLE_SUPER_ADMIN" in admin.roles %}
+                    <td>ROLE_SUPER_ADMIN</td>
+                {% else %}
+                    <td>ROLE_ADMIN</td>
+                {% endif %}
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

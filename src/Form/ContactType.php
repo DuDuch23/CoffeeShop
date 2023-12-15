@@ -22,6 +22,7 @@ class ContactType extends AbstractType
                     'id' => 'nom',
                     'placeholder' => 'Nom',
                 ],
+                'required' => false,
             ])
             ->add('first_name', TextType::class, [
                 'label' => 'Prénom : ',
@@ -30,6 +31,7 @@ class ContactType extends AbstractType
                     'id' => 'prenom',
                     'placeholder' => 'Prénom',
                 ],
+                'required' => false,
             ])
             ->add('email', EmailType::class, [
                 'label' => 'E-mail : ',
@@ -38,6 +40,7 @@ class ContactType extends AbstractType
                     'id' => 'email',
                     'placeholder' => 'E-mail',
                 ],
+                'required' => false,
             ])
             ->add('phone', TextType::class, [
                 'label' => 'Téléphone : ',
@@ -46,6 +49,7 @@ class ContactType extends AbstractType
                     'id' => 'telephone',
                     'placeholder' => 'Téléphone',
                 ],
+                'required' => false,
             ])
             ->add('message', TextType::class, [
                 'label' => 'Message : ',
@@ -54,6 +58,7 @@ class ContactType extends AbstractType
                     'id' => 'message',
                     'placeholder' => 'Message',
                 ],
+                'required' => false,
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
