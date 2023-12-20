@@ -3,9 +3,16 @@
 {% block title %}Liste des Sliders{% endblock %}
 
 {% block body %}
+<div class="top">
     <h1>Liste des Sliders</h1>
-
+    <a href="{{ path('admin_sliders_add') }}" style="text-align: center; display: flex; justify-content: center; align-items: center;">Ajouter un slider</a>
+</div>
     <style>
+        .top{
+            display: flex;
+            justify-content: space-between;
+        }
+
         table{
             border-collapse: collapse;
         }
@@ -47,7 +54,14 @@
                 <td style="width: 40%;">{{ slider.content }}</td>
                 <td>{{ slider.buttonText }}</td>
                 <td>{{ slider.buttonLink }}</td>
-                <td></td>
+                <td>
+                    <a href="{{ path('admin_sliders_edit', {id: slider.id}) }}">Modifier</a>
+                    <form action="{{ path('admin_sliders_delete', {id: slider.id}) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token('delete-slider') }}">
+                        <input type="submit" value="Supprimer">
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

@@ -1,0 +1,25 @@
+{% extends "nav_admin.html.twig" %}
+
+{% block title %}Modification d'un slider{% endblock %}
+
+{% block body %}
+<div class="top" style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>Modification du slider "{{ slider.title }}"</h1>
+    <a href="{{ path('admin_sliders_index') }}">Retourner au tableau des slider</a>
+</div>
+
+<div>
+    <form action="{{ path('admin_sliders_delete', {id: slider.id}) }}" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token('delete-slider') }}">
+        <input type="submit" value="Supprimer">
+    </form>
+</div>
+
+<div>
+    {{ form_start(form) }}
+    {{ form_errors(form.title) }}
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

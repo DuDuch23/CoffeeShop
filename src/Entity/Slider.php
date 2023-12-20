@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\SliderRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SliderRepository::class)]
+#[UniqueEntity(fields: ['title'], message: 'Ce titre est déjà utilisé.')]
+
 class Slider
 {
     #[ORM\Id]
@@ -15,9 +19,10 @@ class Slider
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le titre est obligatoire.')]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $content = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
