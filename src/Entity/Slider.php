@@ -22,13 +22,14 @@ class Slider
     #[Assert\NotBlank(message: 'Le titre est obligatoire.')]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(length: 255, type: Types::TEXT, nullable: true)]
+    #[Assert\NotBlank(message: 'Un contenu est obligatoire.')]
     private ?string $content = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $buttonLink = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(length: 30, nullable: true)]
     private ?string $buttonText = null;
 
     public function getId(): ?int

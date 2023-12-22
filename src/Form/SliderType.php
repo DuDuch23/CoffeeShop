@@ -18,19 +18,43 @@ class SliderType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre',
-                'required' => true,
                 'attr' => [
                     'class' => 'title',
                 ],
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'group col-md-6',
+                ]
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Contenu'
+                'label' => 'Contenu',
+                'attr' => [
+                    'class' => 'content',
+                ],
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group col-md-6',
+                ]
             ])
             ->add('button_link', UrlType::class, [
-                'label' => 'Lien bouton'
+                'label' => 'Lien bouton',
+                'attr' => [
+                    'class' => 'button_link',
+                ],
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group col-md-6',
+                ]
             ])
             ->add('button_text', TextareaType::class, [
-                'label' => 'Texte bouton'
+                'label' => 'Texte bouton',
+                'attr' => [
+                    'class' => 'button_text',
+                ],
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group col-md-6',
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer'

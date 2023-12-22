@@ -23,6 +23,9 @@ class ContactType extends AbstractType
                     'placeholder' => 'Nom',
                 ],
                 'required' => false,
+                'row_attr' => [
+                    'class' => 'form-row',
+                ]
             ])
             ->add('first_name', TextType::class, [
                 'label' => 'Prénom : ',

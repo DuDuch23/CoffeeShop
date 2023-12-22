@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[UniqueEntity(fields: ['name'], message: 'Cette catégorie éxiste déjà.')]
+
 class Category
 {
     #[ORM\Id]

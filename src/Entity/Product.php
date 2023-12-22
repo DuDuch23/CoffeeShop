@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[UniqueEntity(fields: ['name'], message: 'Ce nom est déjà utilisé.')]
+
 class Product
 {
     #[ORM\Id]
@@ -15,30 +19,38 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Le nom est obligatoire.')]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Une description est obligatoire.')]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Le prix est obligatoire.')]
     private ?float $price = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Une note est obligatoire.')]
     private ?float $note = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'La famille est obligatoire.')]
     private ?string $family = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Le pays d\'origine est obligatoire.')]
     private ?string $country = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $best_seller = null;
 
     #[ORM\ManyToOne]
+    #[Assert\NotBlank(message: 'La catégorie est obligatoire.')]
     private ?Category $category = null;
 
     #[ORM\ManyToOne]
+    #[Assert\NotBlank(message: 'La marque est obligatoire.')]
     private ?Brand $brand = null;
 
     public function getId(): ?int

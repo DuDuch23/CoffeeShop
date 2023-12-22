@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
+
 class Contact
 {
     #[ORM\Id]
@@ -15,18 +18,21 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le nom est obligatoire.')]
     private ?string $last_name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le prénom est obligatoire.')]
     private ?string $first_name = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 255, type: EmailType::class, nullable: true)]
     private ?string $email = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(length: 10, nullable: true)]
     private ?int $phone = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(length: 1000, type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Un message est obligatoire.')]
     private ?string $message = null;
 
     public function getId(): ?int
