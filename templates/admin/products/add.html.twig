@@ -1,0 +1,26 @@
+{% extends "nav_admin.html.twig" %}
+
+{% block title %}Ajouter un produit{% endblock %}
+
+{% block body %}
+<div class="top" style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>Ajouter un produit</h1>
+    <a href="{{ path('admin_products_index') }}">Retourner au tableau des produits</a>
+</div>
+
+<div class="container">
+    <h2>Nouveau produit</h2>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.price) }}
+    {{ form_row(form.note) }}
+    {{ form_row(form.family) }}
+    {{ form_row(form.country) }}
+    {{ form_row(form.best_seller) }}
+    {{ form_row(form.category) }}
+    {{ form_row(form.brand) }}
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

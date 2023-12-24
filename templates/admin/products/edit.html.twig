@@ -1,0 +1,25 @@
+{% extends "nav_admin.html.twig" %}
+
+{% block title %}Modification d'un produit{% endblock %}
+
+{% block body %}
+<div class="top" style="display: flex; justify-content: space-between; align-items: center;">
+    <h1 class="h1">Modification du produit "{{ product.name }}"</h1>
+    <a href="{{ path('admin_products_index') }}">Retourner au tableau des produits</a>
+</div>
+
+<div>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.price) }}
+    {{ form_row(form.note) }}
+    {{ form_row(form.family) }}
+    {{ form_row(form.country) }}
+    {{ form_row(form.best_seller) }}
+    {{ form_row(form.category) }}
+    {{ form_row(form.brand) }}
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

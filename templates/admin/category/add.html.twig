@@ -1,0 +1,18 @@
+{% extends "nav_admin.html.twig" %}
+
+{% block title %}Ajouter une catégorie{% endblock %}
+
+{% block body %}
+<div class="top" style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>Ajouter une catégorie</h1>
+    <a href="{{ path('admin_categories_index') }}">Retourner au tableau des catégories</a>
+</div>
+
+<div class="container">
+    <h2>Nouvelle catégorie</h2>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}
