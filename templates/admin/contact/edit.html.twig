@@ -1,0 +1,29 @@
+{% extends "nav_admin.html.twig" %}
+
+{% block title %}Modification d'un contact{% endblock %}
+
+{% block body %}
+<div class="top" style="display: flex; justify-content: space-between; align-items: center;">
+    <h1 class="h1">Modification du contact "{{ contact.email }}"</h1>
+    <a href="{{ path('admin_contacts_index') }}">Retourner au tableau des contacts</a>
+</div>
+
+<div>
+    {{ form_start(form) }}
+        <div>
+            {{ form_row(form.last_name) }}
+            {{ form_row(form.first_name) }}
+        </div>
+        <div>
+            {{ form_row(form.email) }}
+        </div>
+        <div>
+            {{ form_row(form.phone) }}
+        </div>
+        <div>
+            {{ form_row(form.message) }}
+        </div>
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

@@ -104,4 +104,10 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('admin_users_admins_index');
     }
+
+    #[Route (path: '/login', name: 'login')]
+    public function login()
+    {
+        
+    }
 }

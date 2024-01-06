@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(path: '/contacts', name: 'admin_contacts_')]
 class ContactController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    #[Route(path: '/', name: 'index')]
     public function listContact(ContactRepository $contactRepository): Response
     {
         $contacts = $contactRepository->findAll();

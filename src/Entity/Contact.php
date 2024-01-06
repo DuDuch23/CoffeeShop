@@ -6,7 +6,6 @@ use App\Repository\ContactRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 
@@ -25,7 +24,7 @@ class Contact
     #[Assert\NotBlank(message: 'Le prénom est obligatoire.')]
     private ?string $first_name = null;
 
-    #[ORM\Column(length: 255, type: EmailType::class, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
 
     #[ORM\Column(length: 10, nullable: true)]

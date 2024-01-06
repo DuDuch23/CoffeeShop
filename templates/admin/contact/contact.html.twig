@@ -5,7 +5,7 @@
 {% block body %}
 <div class="top">
     <h1 class="h1">Liste des Contacts</h1>
-    <form class="form-group" action="{{ path('admin_contact_add') }}" method="post">
+    <form class="form-group" action="{{ path('admin_contacts_add') }}" method="post">
         <input class="btn btn-add" type="submit" value="Ajouter un contact">
     </form>
 </div>
@@ -68,7 +68,7 @@
                     <form class="form-group" action="{{ path('admin_contacts_edit', {id: contact.id}) }}" method="post">
                         <input class="btn" type="submit" value="Modifier">
                     </form>
-                    <form action="{{ path('admin_contact_delete', {id: contact.id}) }}" method="post">
+                    <form action="{{ path('admin_contacts_delete', {id: contact.id}) }}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token('delete-contact') }}">
                         <input class="btn" type="submit" value="Supprimer">

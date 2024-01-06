@@ -10,11 +10,6 @@ use Faker;
 
 class ProductsFixtures extends Fixture implements DependentFixtureInterface
 {
-    // public const PRODUCT = [
-    //     [
-    //         'name' => 'Lavazza',
-    //     ]
-    // ]
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create('fr_FR');
