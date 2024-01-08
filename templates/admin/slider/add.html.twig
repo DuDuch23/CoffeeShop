@@ -3,17 +3,30 @@
 {% block title %}Ajouter un slider{% endblock %}
 
 {% block body %}
-<div class="top" style="display: flex; justify-content: space-between; align-items: center;">
+<div class="top d-flex justify-content-center m-4">
     <h1>Ajouter un slider</h1>
-    <a href="{{ path('admin_sliders_index') }}">Retourner au tableau des slider</a>
+    <div class="d-flex align-items-center justify-content-end position-absolute end-0">
+        <form class="form-group" action="{{ path('admin_sliders_index') }}" method="post">
+            <input class="btn btn-add" type="submit" value="Retourner au tableau des sliders">
+        </form>
+    </div>
 </div>
 
-<div class="container">
-    <h2>Nouveau slider</h2>
-    {{ form_start(form) }}
-    {{ form_row(form.title) }}
-    {{ form_row(form.content) }}
-    {{ form_end(form) }}
+<div class="d-flex justify-content-center align-items-center">
+    <div class="col-xl-7 col-md-12">
+        <div class="card card-default">
+            <div class="card-body">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    {{ form_row(form.title) }}
+                    {{ form_row(form.content) }}
+                    {{ form_row(form.buttonLink) }}
+                    {{ form_row(form.buttonText) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

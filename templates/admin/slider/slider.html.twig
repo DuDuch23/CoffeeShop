@@ -3,11 +3,13 @@
 {% block title %}Liste des Sliders{% endblock %}
 
 {% block body %}
-<div class="top">
-    <h1 class="h1">Liste des Sliders</h1>
-    <form class="form-group" action="{{ path('admin_sliders_add') }}" method="post">
-        <input class="btn btn-add" type="submit" value="Ajouter un slider">
-    </form>
+<div class="top d-flex justify-content-center m-4">
+    <h1>Liste des Sliders</h1>
+    <div class="d-flex align-items-center justify-content-end position-absolute end-0">
+        <form class="form-group" action="{{ path('admin_sliders_add') }}" method="post">
+            <input class="btn btn-add" type="submit" value="Ajouter un slider">
+        </form>
+    </div>
 </div>
     <style>
         .top{

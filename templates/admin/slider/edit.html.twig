@@ -3,24 +3,37 @@
 {% block title %}Modification d'un slider{% endblock %}
 
 {% block body %}
-<div class="top" style="display: flex; justify-content: space-between; align-items: center;">
-    <h1 class="h1">Modification du slider "{{ slider.title }}"</h1>
-    <a href="{{ path('admin_sliders_index') }}">Retourner au tableau des slider</a>
+<div class="top d-flex justify-content-center m-4">
+    <h1>Modification du slider "{{ slider.title }}"</h1>
+    <div class="d-flex align-items-center justify-content-end position-absolute end-0">
+        <form class="form-group" action="{{ path('admin_sliders_index') }}" method="post">
+            <input class="btn btn-add" type="submit" value="Retourner au tableau des sliders">
+        </form>
+    </div>
 </div>
 
-<div>
-    {{ form_start(form) }}
-        <div>
-            {{ form_row(form.title) }}
-            {{ form_row(form.content) }}
+<div class="d-flex justify-content-center align-items-center">
+    <div class="col-xl-7 col-md-12">
+        <div class="card card-default">
+            <div class="card-body">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                        <div>
+                            {{ form_row(form.title) }}
+                            {{ form_row(form.content) }}
+                        </div>
+                        <div>
+                            {{ form_row(form.buttonLink) }}
+                        </div>
+                        <div>
+                            {{ form_row(form.buttonText) }}
+                        </div>
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            {{ form_row(form.button_link) }}
-        </div>
-        <div>
-            {{ form_row(form.button_text) }}
-        </div>
-    {{ form_end(form) }}
+    </div>
 </div>
 
 {% endblock %}

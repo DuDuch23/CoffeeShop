@@ -40,7 +40,7 @@ class SliderController extends AbstractController
             {
                 $entityManager->flush();
 
-                return $this->redirectToRoute('admin_sliders_edit', [
+                return $this->redirectToRoute('admin_sliders_index', [
                     'id' => $slider->getId(),
                 ]);
             }
@@ -70,7 +70,7 @@ class SliderController extends AbstractController
                 $entityManager->persist($slider);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('admin_sliders_edit', [
+                return $this->redirectToRoute('admin_sliders_index', [
                     'id' => $slider->getId(),
                 ]);
             }

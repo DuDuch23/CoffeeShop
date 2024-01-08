@@ -19,45 +19,51 @@ class SliderType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'attr' => [
-                    'class' => 'title',
+                    'class' => 'title form-control',
                 ],
                 'required' => false,
                 'row_attr' => [
-                    'class' => 'group col-md-6',
+                    'class' => 'form-group mb-4',
                 ]
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu',
                 'attr' => [
-                    'class' => 'content',
+                    'class' => 'content form-control',
                 ],
                 'required' => false,
                 'row_attr' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group mb-4',
                 ]
             ])
-            ->add('button_link', UrlType::class, [
+            ->add('buttonLink', UrlType::class, [
                 'label' => 'Lien bouton',
                 'attr' => [
-                    'class' => 'button_link',
+                    'class' => 'buttonLink form-control',
                 ],
                 'required' => false,
                 'row_attr' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group mb-4',
                 ]
             ])
-            ->add('button_text', TextareaType::class, [
+            ->add('buttonText', TextareaType::class, [
                 'label' => 'Texte bouton',
                 'attr' => [
-                    'class' => 'button_text',
+                    'class' => 'buttonText form-control',
                 ],
                 'required' => false,
                 'row_attr' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group mb-4',
                 ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Envoyer'
+                'label' => 'Envoyer',
+                'attr' => [
+                    'class' => 'btn',
+                ],
+                'row_attr' => [
+                    'class' => 'text-center'
+                ],
             ]);
     }
 
