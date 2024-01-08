@@ -5,36 +5,67 @@ namespace App\DataFixtures;
 use App\Entity\Admin;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AdminFixtures extends Fixture
 {
-    private $encoder;
-
-    public function __construct(UserPasswordHasherInterface $encoder)
+    public function __construct(private UserPasswordHasherInterface $passwordHasher)
     {
-        $this->encoder = $encoder;
+        $this->passwordHasher = $passwordHasher;
     }
 
     public function load(ObjectManager $manager): void
     {
-        $faker = Faker\Factory::create('fr_FR');
+        $dataAdmin = [
+            [
+                'email' => 'alexduduch77@gmail.com',
+                'role' => ["ROLE_SUPER_ADMIN"],
+                'password' => 'Duduch',
+            ],
+            [
+                'email' => 'alexduduch60@gmail.com',
+                'role' => ["ROLE_ADMIN"],
+                'password' => 'Duduch',
+            ],
+            [
+                'email' => 'testSupprimer@gmail.com',
+                'role' => ["ROLE_SUPER_ADMIN"],
+                'password' => 'Supprimer',
+            ],
+            [
+                'email' => 'testModifier@gmail.com',
+                'role' => ["ROLE_ADMIN"],
+                'password' => 'Modifier',
+            ],
+            [
+                'email' => 'testSupprimer1@gmail.com',
+                'role' => ["ROLE_SUPER_ADMIN"],
+                'password' => 'Supprimer',
+            ],
+            [
+                'email' => 'testModifier1@gmail.com',
+                'role' => ["ROLE_ADMIN"],
+                'password' => 'Modifier',
+            ],
+            [
+                'email' => 'testSupprimer2@gmail.com',
+                'role' => ["ROLE_SUPER_ADMIN"],
+                'password' => 'Supprimer',
+            ],
+            [
+                'email' => 'testModifier2@gmail.com',
+                'role' => ["ROLE_ADMIN"],
+                'password' => 'Modifier',
+            ],
 
-        for($nbAdmin = 1; $nbAdmin <= 3; $nbAdmin++)
+        ];
+
+        foreach($dataAdmin as $data)
         {
             $admin = new Admin();
-            $admin->setEmail($faker->email);
-            if($nbAdmin == 1)
-            {
-                $admin->setRoles(['ROLE_SUPER_ADMIN']);
-            }
-            else
-            {
-                $admin->setRoles(['ROLE_ADMIN']);
-            }
-            $password = 'azerty';
-            $admin->setPassword($this->encoder->hashPassword($admin, $password));
+            $admin->setEmail($data['email']);
+            $admin->setRoles($data['role']);
+            $admin->setPassword($this->passwordHasher->hashPassword($admin, $data['password']));
             
             $manager->persist($admin);
         }

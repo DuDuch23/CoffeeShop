@@ -14,7 +14,9 @@
     {{ form_row(form.email) }}
     {{ form_row(form.roles) }}
     {{ form_row(form.password) }}
+    <button type="button" id="togglePassword"><img src="{{ asset('media/oeil.png') }}"></button>
     {{ form_end(form) }}
 </div>
 
+<script src="{{ asset('js/visibilityPassword.js') }}"></script>
 {% endblock %}

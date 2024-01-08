@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Admin;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -26,7 +27,7 @@ class AdminType extends AbstractType
                 'class' => 'form-group col-md-6',
             ]
         ])
-        ->add('role', TextType::class, [
+        ->add('roles', ChoiceType::class, [
             'label' => 'Rôle',
             'attr' => [
                 'class' => 'role',
@@ -34,12 +35,17 @@ class AdminType extends AbstractType
             'required' => false,
             'row_attr' => [
                 'class' => 'form-group col-md-6',
-            ]
+            ],
+            'choices' => [
+                'Admin' => 'ROLE_ADMIN',
+                'Super Admin' => 'ROLE_SUPER_ADMIN',
+            ],
+            'multiple' => true, // permet de choisir plusieurs rôles si besoin
         ])
         ->add('password', PasswordType::class, [
             'label' => 'Mot de passe',
             'attr' => [
-                'class' => 'password',
+                'class' => 'password password-toggle',
             ],
             'required' => false,
             'row_attr' => [

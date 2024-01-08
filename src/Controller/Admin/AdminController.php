@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route(path: '/admins', name: 'admin_users_admins_')]
 class AdminController extends AbstractController
 {
@@ -103,11 +104,5 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_users_admins_index');
-    }
-
-    #[Route (path: '/login', name: 'login')]
-    public function login()
-    {
-        
     }
 }

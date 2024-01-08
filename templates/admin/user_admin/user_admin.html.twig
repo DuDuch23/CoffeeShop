@@ -5,9 +5,11 @@
 {% block body %}
 <div class="top">
     <h1 class="h1">Liste des Administrateurs</h1>
-    <form class="form-group" action="{{ path('admin_users_admins_add') }}" method="post">
-        <input class="btn btn-add" type="submit" value="Ajouter un administrateur">
-    </form>
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <form class="form-group" action="{{ path('admin_users_admins_add') }}" method="post">
+            <input class="btn btn-add" type="submit" value="Ajouter un administrateur">
+        </form>
+    {% endif %}
 </div>
     <style>
         .top{

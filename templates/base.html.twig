@@ -11,6 +11,7 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            
         {% endblock %}
     </head>
     <body>
@@ -45,9 +46,15 @@
                 </nav>
             </div>
             <div class="content-name">
-                <h1 class="name">
-                    Coffeera
-                </h1>
+                {% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('admin_sliders_index') }}">
+                        <h1>BackOffice</h1>
+                    </a>
+                {% else %}
+                    <h1 class="name">
+                        Coffeera
+                    </h1>
+                {% endif %}
             </div>
             <div class="content-btn-shop">
                 <button class="btn btn-shop">

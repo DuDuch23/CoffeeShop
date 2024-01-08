@@ -10,11 +10,6 @@ security:
                 class: App\Entity\Admin
                 property: email
     firewalls:
-        secured_area:
-            logout:
-                path: app_logout
-                target: app_homepage
-            methods: [GET, POST, PUT, DELETE]
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -27,11 +22,16 @@ security:
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
-
+            form_login:
+                login_path: login
+                check_path: login
+                enable_csrf: true
+            json_login:
+                check_path: api_login
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN] }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

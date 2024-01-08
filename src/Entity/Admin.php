@@ -20,15 +20,18 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\NotBlank(message: 'Un email est obligatoire.')]
     private ?string $email = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Ajouter au moins un rôle.')]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Un mot de passe est obligatoire.')]
     private ?string $password = null;
 
     public function getId(): ?int
