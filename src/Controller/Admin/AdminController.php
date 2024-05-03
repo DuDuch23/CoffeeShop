@@ -91,7 +91,7 @@ class AdminController extends AbstractController
     {
         $token = $request->request->get('csrf_token');
 
-        if (!$this->isCsrfTokenValid('delete-user_admin', $token)) {
+        if (!$this->isCsrfTokenValid('delete-user', $token)) {
             throw $this->createAccessDeniedException();
         }
 
